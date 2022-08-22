@@ -4,10 +4,10 @@ import iogSothoth from './IogSothoth.png';
 import shubNiggurath from './ShubNiggurath.png';
 
 const ancients = {
-  azathoth,
   cthulhu,
+  shubNiggurath,
   iogSothoth,
-  shubNiggurath
+  azathoth,
 }
 
 export default ancients
