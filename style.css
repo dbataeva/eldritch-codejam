@@ -1,8 +1,8 @@
 body {
 	margin: 0;
 
-	height: 100vw;
-	width: 100vh;
+	height: 100%;
+	width: 100%;
 
 	overflow: hidden;
 
@@ -15,12 +15,27 @@ body {
 }
 
 main {
+	width: 100%;
+
 	display: flex;
 	flex-direction: column;
 }
 
+.enemies-p {
+	text-align: center;
+
+	padding: 10px;
+	margin: 1vh 25vw;
+
+	font-size: 24px;
+	font-weight: 600;
+
+	background-color: rgba(240, 248, 255, 0.75);
+	border-radius: 15px;
+}
+
 .monsters {
-	margin: 2vh 0.5vw;
+	margin: 0 0.5vw 1vh;
 	padding: 0;
 	width: 100vw;
 
@@ -35,14 +50,17 @@ main {
 .cthulhu,
 .iogSothoth,
 .shubNiggurath {
-	width: 24vw;
+	width: 443px;
 	height: 574px;
 
-	max-height: 49vh;
+	max-height: 45vh;
+	max-width: 24vw;
 
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
+
+	opacity: 0.75;
 }
 
 .azathoth {
@@ -61,8 +79,15 @@ main {
 	background-image: url(./assets/Ancients/ShubNiggurath.png);
 }
 
+.chosen {
+	opacity: 1;
+}
+
 .game {
 	display: flex;
+	justify-content: space-around;
+
+	margin-bottom: 1vh;
 }
 
 .game-difficulty-p {
@@ -73,6 +98,7 @@ main {
 
 .difficulty {
 	padding: 10px;
+	height: 43vh;
 
 	display: flex;
 	flex-direction: column;
@@ -95,18 +121,18 @@ main {
 	width: 24vw;
 	height: 419px;
 
-	max-height: 49vh;
+	max-height: 45vh;
 	max-width: 285px;
 
 	border-radius: 15px;
+
+	display: none;
 }
 
 .card-deck {
 	background-image: url(./assets/mythicCardBackground.png);
-}
 
-.current-card {
-
+	display: block;
 }
 
 .status {

@@ -9,10 +9,11 @@
 </head>
 <body>
 	<main>
-		<section>
+		<section class="enemies">
+			<p class="enemies-p">Choose enemy:</p>
 			<ul class="monsters">
 				<li>
-					<div class="cthulhu"></div>
+					<div class="cthulhu chosen"></div>
 				</li>
 				<li>
 					<div class="shubNiggurath"></div>
@@ -29,23 +30,23 @@
 			<section class="difficulty">
 				<p class="game-difficulty-p">Choose difficulty:</p>
 				<div class="difficulty-level">
-					<input type="radio" value="easyX2" name="difficulty">
+					<input type="radio" value="easyX2" name="difficulty" disabled>
 					<label for="difficultyChoice1">very easy</label>
 				</div>
 				<div class="difficulty-level">
-					<input type="radio" value="easy" name="difficulty">
+					<input type="radio" value="easy" name="difficulty" disabled>
 					<label for="difficultyChoice2">easy</label>
 				</div>
 				<div class="difficulty-level">
-					<input type="radio" value="normal" name="difficulty">
+					<input type="radio" value="normal" name="difficulty" checked>
 					<label for="difficultyChoice3">normal</label>
 				</div>
 				<div class="difficulty-level">
-					<input type="radio" value="hard" name="difficulty">
+					<input type="radio" value="hard" name="difficulty" disabled>
 					<label for="difficultyChoice4">hard</label>
 				</div>
 				<div class="difficulty-level">
-					<input type="radio" value="hardX2" name="difficulty">
+					<input type="radio" value="hardX2" name="difficulty" disabled>
 					<label for="difficultyChoice5">very hard</label>
 				</div>
 			</section>
@@ -56,21 +57,22 @@
 			<section class="status">
 				<div class="first-stage">
 					<div class="first-green"></div>
-					<div class="first-yellow"></div>
+					<div class="first-brown"></div>
 					<div class="first-blue"></div>
 				</div>
 				<div class="second-stage">
 					<div class="second-green"></div>
-					<div class="second-yellow"></div>
+					<div class="second-brown"></div>
 					<div class="second-blue"></div>
 				</div>
 				<div class="third-stage">
 					<div class="third-green"></div>
-					<div class="third-yellow"></div>
+					<div class="third-brown"></div>
 					<div class="third-blue"></div>
 				</div>
 			</section>
 		</section>
 	</main>
+	<script type="module" src="./app/main.js"></script>
 </body>
 </html>
