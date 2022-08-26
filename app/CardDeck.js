@@ -97,12 +97,13 @@ export default class CardDeck {
 	getCard() {
 		for (let key in this) {
 			if (this[key][0]) {
-				const card = this[key][0];
-
-				this[key].unshift();
-				return card;
+				return this[key].pop();
 			}
 		}
+	}
+
+	getCardsCount() {
+		return Object.values(this).reduce((sum, item) => sum + item.length, 0);
 	}
 	
 }
