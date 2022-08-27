@@ -58,7 +58,7 @@ export default class CardDeck {
 		for (let i = 0; i < cardsCount; ++i) {
 			const randomCard = this.getRandomCard(cardsSet);
 
-			if (this.checkIfTheCardIsAlreadyInDeck(randomCard)) {
+			if (this.checkIfTheCardIsAlreadyInDeck(randomCard) || cardsArr.includes(randomCard)) {
 				--i;
 			} else {
 				cardsArr.push(randomCard);

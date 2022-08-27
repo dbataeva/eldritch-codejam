@@ -1,15 +1,25 @@
 import CardDeck from './CardDeck.js';
-import { showStatus } from './showStatus.js';
 import { getAncients } from './ancients.js';
+import { showStatus } from './showStatus.js';
+import { blockChoseEnemy } from './chooseEnemy.js';
 import { defineChosenEnemy } from './defineChosenEnemy.js';
 import { defineChosenDifficulty } from './defineChosenDifficulty.js';
 
+let enemy; 
+let cardDeck;
+
 const ancients = getAncients();
-const cardDeckImage = './assets/mythicCardBackground.png'
+const cardDeckImage = './assets/mythicCardBackground.png';
 const currentCard = document.querySelector('.current-card');
-const cardDeck = new CardDeck(defineChosenEnemy(ancients), defineChosenDifficulty());
 
 export const showCards = (event) => {
+	enemy = defineChosenEnemy(ancients);
+	if (!enemy) {
+		alert('You have to choose an enemy first!');
+		return ;
+	}
+	blockChoseEnemy();
+	cardDeck = new CardDeck(enemy, defineChosenDifficulty());
 	event.target.removeEventListener('click', showCards);
 
 	const hiddenCard = document.querySelector('.card-deck');
@@ -29,8 +39,6 @@ const showCard = (event) => {
 	}
 	if (nextCard) {
 		currentCard.style.backgroundImage = `url(${nextCard})`;
-	} else {
-		currentCard.style.backgroundImage = '';
 	}
 
 	showStatus(cardDeck);
