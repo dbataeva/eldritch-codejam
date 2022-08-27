@@ -1,4 +1,6 @@
 import { getRandomInteger } from './getRandomInteger.js';
+import { easySet } from '../assets/MythicCards/easySet.js';
+import { hardSet } from '../assets/MythicCards/hardSet.js';
 import { easyX2Set } from '../assets/MythicCards/easyX2Set.js';
 import { normalSet } from '../assets/MythicCards/normalSet.js';
 import { hardX2Set } from '../assets/MythicCards/hardX2Set.js';
@@ -6,24 +8,22 @@ import { hardX2Set } from '../assets/MythicCards/hardX2Set.js';
 export default class CardDeck {
 
 	constructor(enemy, difficulty) {
-		console.log(difficulty);
-
 		switch (difficulty) {
 			case 'easyX2':
 				this.createCardDEck(enemy, easyX2Set(enemy));
-				break ;
+				break;
 			case 'easy':
-				//do something
-				break ;
+				this.createCardDEck(enemy, easySet(enemy));
+				break;
 			case 'normal':
 				this.createCardDEck(enemy, normalSet());
-				break ;
+				break;
 			case 'hard':
-				//do something
-				break ;
+				this.createCardDEck(enemy, hardSet(enemy));
+				break;
 			case 'hardX2':
 				this.createCardDEck(enemy, hardX2Set(enemy));
-				break ;
+				break;
 		}
 	}
 
@@ -39,7 +39,7 @@ export default class CardDeck {
 		for (let color in stageSet) {
 			this.getCardsWithColor(cardSet.get(color), stageSet[color], cardsArr, color);
 		}
-		
+
 		return this.mixCards(cardsArr);
 	}
 
@@ -97,10 +97,10 @@ export default class CardDeck {
 	getCardsCount() {
 		return Object.values(this).reduce((sum, item) => sum + item.length, 0);
 	}
-	
+
 	getStatus() {
 		const status = {};
-	
+
 		for (let key in this) {
 			let green = 0;
 			let brown = 0;
