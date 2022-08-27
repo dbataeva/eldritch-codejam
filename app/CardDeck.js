@@ -5,7 +5,6 @@ import { greenCards } from '../assets/MythicCards/green/index.js';
 export default class CardDeck {
 
 	constructor(enemy, difficulty) {
-		console.log(enemy);
 		switch (difficulty) {
 			case 'easyX2':
 				//do something
@@ -59,13 +58,21 @@ export default class CardDeck {
 		for (let i = 0; i < cardsCount; ++i) {
 			const randomCard = this.getRandomCard(cardsSet);
 
-			
-			if (cardsArr.includes(randomCard)) {
+			if (this.checkIfTheCardIsAlreadyInDeck(randomCard)) {
 				--i;
 			} else {
 				cardsArr.push(randomCard);
 			}
 		}
+	}
+
+	checkIfTheCardIsAlreadyInDeck(randomCard) {
+		for (let stage in this) {
+			if (this[stage].includes(randomCard)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	getRandomCard(cardsSet) {
@@ -106,4 +113,27 @@ export default class CardDeck {
 		return Object.values(this).reduce((sum, item) => sum + item.length, 0);
 	}
 	
+	getStatus() {
+		const status = {};
+	
+		for (let key in this) {
+			let green = 0;
+			let brown = 0;
+			let blue = 0;
+
+			this[key].forEach(card => {
+				if (card.includes('green')) {
+					++green;
+				}
+				if (card.includes('brown')) {
+					++brown;
+				}
+				if (card.includes('blue')) {
+					++blue;
+				}
+			});
+			status[key] = [green, brown, blue];
+		}
+		return status;
+	}
 }

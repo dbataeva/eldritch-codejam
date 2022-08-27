@@ -124,8 +124,6 @@ main {
 	color: rgb(240, 248, 255);
 	font-size: 20px;
 	font-weight: 500;
-	/* font-family: Arial, Helvetica, sans-serif; */
-
 }
 
 .cards {
@@ -149,11 +147,88 @@ main {
 	background-repeat: no-repeat;
 }
 
-.card-deck {
-	/* background-image: url(./assets/mythicCardBackground.png); */
-}
-
 .status {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
+	align-content: space-around;
+
+	width: 24vw;
+	height: 419px;
+
+	max-height: 45vh;
+	max-width: 285px;
+}
+
+.first-stage,
+.second-stage,
+.third-stage {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 33%;
+}
+
+.status-p {
+	text-align: center;
+	
+	padding: 5px;
+	margin: 1vh 25%;
+
+	font-size: 20px;
+	font-weight: 5600;
+
+	background-color: rgba(240, 248, 255, 0.75);
+	border-radius: 15px;
+}
+
+.first-green,
+.second-green,
+.third-green,
+.first-brown,
+.second-brown,
+.third-brown,
+.first-blue,
+.second-blue,
+.third-blue {
+	width: 33%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	color: rgb(240, 248, 255);
+	font-size: 30px;
+	font-weight: 500;
+}
+
+.first-green,
+.second-green,
+.third-green {
+	background-color: rgba(0, 128, 0, 0.75);
+}
+
+.first-brown,
+.second-brown,
+.third-brown {
+	background-color: rgba(165, 42, 42, 0.75);
+}
+
+.first-blue,
+.second-blue,
+.third-blue {
+	background-color: rgba(0, 0, 255, 0.75);
+}
+
+.again {
+	padding: 5px;
+	margin: 1vh 25%;
+
+	background-color: rgba(30, 144, 255, 0.75);
+
+	border: none;
+	border-radius: 10px;
+
+	color: rgb(240, 248, 255);
+	font-size: 20px;
+	font-weight: 500;
 }
