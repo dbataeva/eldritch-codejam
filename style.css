@@ -121,6 +121,10 @@ main {
 	font-weight: 500;
 }
 
+.difficulty-label:hover {
+	cursor: pointer;
+}
+
 .start {
 	margin: 2vh 1vh;
 

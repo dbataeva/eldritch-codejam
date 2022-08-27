@@ -1,5 +1,5 @@
 import { commonCardsSet } from './commonCardsSet.js';
-import { getRandomInteger } from '../../app/getRandomInteger.js'
+import { getRandomInteger } from './getRandomInteger.js'
 
 export const addCards = (color, countCardsAdd, arrToAdd) => {
 	const commonCardsArrWithTheColor = commonCardsSet().get(color);

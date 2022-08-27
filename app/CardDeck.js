@@ -1,9 +1,9 @@
+import { easySet } from './easySet.js';
+import { hardSet } from './hardSet.js';
+import { easyX2Set } from './easyX2Set.js';
+import { normalSet } from './normalSet.js';
+import { hardX2Set } from './hardX2Set.js';
 import { getRandomInteger } from './getRandomInteger.js';
-import { easySet } from '../assets/MythicCards/easySet.js';
-import { hardSet } from '../assets/MythicCards/hardSet.js';
-import { easyX2Set } from '../assets/MythicCards/easyX2Set.js';
-import { normalSet } from '../assets/MythicCards/normalSet.js';
-import { hardX2Set } from '../assets/MythicCards/hardX2Set.js';
 
 export default class CardDeck {
 
