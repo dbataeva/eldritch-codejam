@@ -166,6 +166,10 @@ main {
 	background-repeat: no-repeat;
 }
 
+.card-deck:hover {
+	cursor: pointer;
+}
+
 .status {
 	display: flex;
 	flex-direction: column;
