@@ -32,5 +32,5 @@ export const blockChoseEnemy = () => {
 }
 
 const showAlert = () => {
-	alert('If you want to choose another enemy, you have to press button "mix again!"');
+	alert('If you want to choose another enemy, you have to press button "mix again"');
 }

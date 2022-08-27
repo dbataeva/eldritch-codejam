@@ -139,6 +139,12 @@ main {
 	font-weight: 500;
 }
 
+.start:hover,
+.again:hover {
+	cursor: pointer;
+	background-color: rgba(30, 144, 255, 1);
+}
+
 .cards {
 	display: flex;
 }

@@ -46,5 +46,5 @@ const showCard = (event) => {
 }
 
 const showAlert = () => {
-	alert('If you want to get another card deck, you have to press button "mix again!"');
+	alert('If you want to get another card deck, you have to press button "mix again"');
 }
