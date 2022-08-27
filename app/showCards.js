@@ -21,6 +21,7 @@ export const showCards = (event) => {
 	blockChoseEnemy();
 	cardDeck = new CardDeck(enemy, defineChosenDifficulty());
 	event.target.removeEventListener('click', showCards);
+	event.target.addEventListener('click', showAlert);
 
 	const hiddenCard = document.querySelector('.card-deck');
 
@@ -42,4 +43,8 @@ const showCard = (event) => {
 	}
 
 	showStatus(cardDeck);
+}
+
+const showAlert = () => {
+	alert('If you want to get another card deck, you have to press button "mix again!"');
 }
