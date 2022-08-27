@@ -1,60 +1,49 @@
-import { blueCards } from '../assets/MythicCards/blue/index.js';
-import { brownCards } from '../assets/MythicCards/brown/index.js';
-import { greenCards } from '../assets/MythicCards/green/index.js';
+import { getRandomInteger } from './getRandomInteger.js';
+import { easyX2Set } from '../assets/MythicCards/easyX2Set.js';
+import { normalSet } from '../assets/MythicCards/normalSet.js';
+import { hardX2Set } from '../assets/MythicCards/hardX2Set.js';
 
 export default class CardDeck {
 
 	constructor(enemy, difficulty) {
+		console.log(difficulty);
+
 		switch (difficulty) {
 			case 'easyX2':
-				//do something
+				this.createCardDEck(enemy, easyX2Set(enemy));
 				break ;
 			case 'easy':
 				//do something
 				break ;
 			case 'normal':
-				this.createCardDEckForNormalDifficulty(enemy);
+				this.createCardDEck(enemy, normalSet());
 				break ;
 			case 'hard':
 				//do something
 				break ;
 			case 'hardX2':
-				//do something
+				this.createCardDEck(enemy, hardX2Set(enemy));
 				break ;
 		}
 	}
 
-	createCardDEckForNormalDifficulty(enemy) {
+	createCardDEck(enemy, cardSet) {
 		for (let key in enemy) {
-			this[key] = this.getCardsForStage(enemy[key]);
+			this[key] = this.getCardsForStage(enemy[key], cardSet);
 		}
 	}
 
-	getCardsForStage(stageSet) {
+	getCardsForStage(stageSet, cardSet) {
 		const cardsArr = [];
 
 		for (let color in stageSet) {
-			this.getCardsWithColor(color, stageSet[color], cardsArr);
+			this.getCardsWithColor(cardSet.get(color), stageSet[color], cardsArr, color);
 		}
 		
 		return this.mixCards(cardsArr);
 	}
 
-	getCardsWithColor(color, cardsCount, cardsArr) {
-		switch (color) {
-			case 'blue':
-				this.getSeveralCards(blueCards, cardsCount, cardsArr);
-				break ;
-			case 'brown':
-				this.getSeveralCards(brownCards, cardsCount, cardsArr);
-				break;
-			case 'green':
-				this.getSeveralCards(greenCards, cardsCount, cardsArr);
-				break;
-		}
-	}
-
-	getSeveralCards(cardsSet, cardsCount, cardsArr) {
+	getCardsWithColor(cardsSet, cardsCount, cardsArr, color) {
 		for (let i = 0; i < cardsCount; ++i) {
 			const randomCard = this.getRandomCard(cardsSet);
 
@@ -76,7 +65,7 @@ export default class CardDeck {
 	}
 
 	getRandomCard(cardsSet) {
-		const randomNumber = this.getRandomInteger(0, cardsSet.length);
+		const randomNumber = getRandomInteger(0, cardsSet.length);
 
 		return (cardsSet[randomNumber]);
 	}
@@ -85,7 +74,7 @@ export default class CardDeck {
 		const newCardsArr = [];
 
 		for (let i = 0; i < oldCardsArr.length; ++i) {
-			const randomIndex = this.getRandomInteger(0, oldCardsArr.length);
+			const randomIndex = getRandomInteger(0, oldCardsArr.length);
 
 			if (newCardsArr.includes(oldCardsArr[randomIndex])) {
 				--i;
@@ -95,10 +84,6 @@ export default class CardDeck {
 		}
 
 		return newCardsArr;
-	}
-
-	getRandomInteger(min, max) {
-		return (Math.floor((max - min) * Math.random() + min));
 	}
 
 	getCard() {

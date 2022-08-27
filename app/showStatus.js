@@ -30,8 +30,6 @@ const status = {
 
 export const showStatus = (cardDeck) => {
 	const currentStatus = cardDeck.getStatus();
-
-	console.dir(firstStageBrown);
 	
 	for (let key in currentStatus) {
 		for (let i = 0; i < currentStatus[key].length; ++i) {

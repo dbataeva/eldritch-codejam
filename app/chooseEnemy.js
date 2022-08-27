@@ -15,7 +15,6 @@ export const chooseEnemy = () => {
 }
 
 const addChosenClass = (event) => {
-	console.dir(enemies);
 	enemies.forEach(enemy => {
 		if (enemy === event.target) {
 			enemy.classList.add('chosen');
@@ -23,7 +22,6 @@ const addChosenClass = (event) => {
 			enemy.classList.remove('chosen');
 		}
 	});
-	console.dir(enemies);
 }
 
 export const blockChoseEnemy = () => {
